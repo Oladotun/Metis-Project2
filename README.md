@@ -13,13 +13,13 @@ On that note, I have decided to change my research question and predict the next
 
 The NBA Contract Signings for the 2019-2020 is currently going on. Many players are changing teams and others are renewing their contract. These moves by the players such as Kevin Durant, Kawhi Leonard, Kyrie Irving, and many more promises to make the next NBA 2019-2020 season an exciting one.
 
-This excitement has led me to ask the questions : "Can we predict an NBA player Salaries based on their current season performance ?". This question can be used to evaluate the player's impact and in an industry whereby salaries are guaranteed to justify what the player should be worth in his next contract or team.
+This excitement has led me to ask the questions : "Can we predict performance of a player bassed on the NBA player Salaries and other data ?". This question can be used to evaluate the worth of a player and see if they are meeting up to the team goals. This evaluation can be used to see if the players future contracts should be renewed or not.
 
 ## METHODOLOGY:
 1. Scrape Player Salary and Contract information data afrom Basketball Reference <br>
 2. Scrape Player Sport Injuries data from specific seasons from Pro Sports Transactions<br>
 3. Calculate Player [Player Efficiency Rating (PER)](https://www.basketball-reference.com/about/per.html) <br>
-4. Build linear regression model using current scraped data<br>
+4. Build linear regression model using current scraped data to predict PER based on salries<br>
 
 ## DATA SOURCES:
 -  [Pro Sports Transactions ](http://www.prosportstransactions.com/basketball/) <br>
@@ -79,10 +79,11 @@ For more on the names chack the glossary [here](https://www.basketball-reference
 - Height of Player
 - Weight of Player
 - Number of Seasons played
-- Player Efficiency Rating
-- Player Injury report per season
-### Y
 - Player current Salary
+- Player Injury report per season
+
+### Y
+- Player Efficiency Rating
 
 
 ## THINGS TO CONSIDER
