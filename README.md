@@ -26,8 +26,8 @@ This excitement has led me to ask the questions : "Can we predict an NBA player 
 -  [Basketball Reference](https://www.basketball-reference.com/)
 
 ## TARGET
-- MVP: Number of Sport Injuries per season from 2010-2019 on high earning players.
-- Goal: Prediction of player salaries based on player statistics and whether or not they had an injury.
+- MVP: Prediction of player salaries based on player statistics for seasons 2008 - 2012.
+- Goal: Prediction of player salaries based on player statistics and whether or not they had an injury from 2008 - 2019.
 
 ## FEATURES
   - Player Name
