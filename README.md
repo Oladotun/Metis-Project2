@@ -70,7 +70,8 @@ This excitement has led me to ask the questions : "Can we predict an NBA player 
   - team_Pace
   - team_AST
   - team_FG
-  
+
+For more on the names chack the glossary [here](https://www.basketball-reference.com/about/glossary.html) 
 ## FEATURES TO INCLUDE INTO LINEAR REGRESSION MODEL
 ### X
 - Player's name
