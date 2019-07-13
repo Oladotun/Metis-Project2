@@ -19,7 +19,7 @@ This excitement has led me to ask the questions : "Can we predict an NBA player 
 1. Scrape Player Salary and Contract information data afrom Basketball Reference <br>
 2. Scrape Player Sport Injuries data from specific seasons from Pro Sports Transactions<br>
 3. Calculate Player [Player Efficiency Rating (PER)](https://www.basketball-reference.com/about/per.html) <br>
-4. Build linear regression model using current scraped data to predict PER based on salries<br>
+4. Build linear regression model using current scraped data to predict salaries of players<br>
 
 ## DATA SOURCES:
 -  [Pro Sports Transactions ](http://www.prosportstransactions.com/basketball/) <br>
