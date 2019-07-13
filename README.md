@@ -79,11 +79,11 @@ For more on the names chack the glossary [here](https://www.basketball-reference
 - Height of Player
 - Weight of Player
 - Number of Seasons played
-- Player current Salary
+- Player Efficiency Rating
 - Player Injury report per season
 
 ### Y
-- Player Efficiency Rating
+- Player current Salary
 
 
 ## THINGS TO CONSIDER
