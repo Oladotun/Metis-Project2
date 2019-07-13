@@ -13,7 +13,7 @@ On that note, I have decided to change my research question and predict the next
 
 The NBA Contract Signings for the 2019-2020 is currently going on. Many players are changing teams and others are renewing their contract. These moves by the players such as Kevin Durant, Kawhi Leonard, Kyrie Irving, and many more promises to make the next NBA 2019-2020 season an exciting one.
 
-This excitement has led me to ask the questions : "Can we predict performance of a player bassed on the NBA player Salaries and other data ?". This question can be used to evaluate the worth of a player and see if they are meeting up to the team goals. This evaluation can be used to see if the players future contracts should be renewed or not.
+This excitement has led me to ask the questions : "Can we predict an NBA player Salaries based on their current season performance ?". This question can be used to evaluate the player's impact and in an industry whereby salaries are guaranteed to justify what the player should be worth in his next contract or team.
 
 ## METHODOLOGY:
 1. Scrape Player Salary and Contract information data afrom Basketball Reference <br>
