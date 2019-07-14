@@ -167,5 +167,7 @@ for zones in eastWestZones:
     finalFrame = finalFrame.append(playStatsSalaries)
     print("The total length of players are: ")
     print(len(finalFrame))
+finalFrame = finalFrame.reset_index()
+finalFrame.to_csv("./NbaPlayerStats20172019.csv",index=False)
  
     
