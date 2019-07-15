@@ -120,7 +120,7 @@ for zones in eastWestZones:
     playStats = playStats.set_index('Name')
     neededPlayStats = playStats.reindex(["Rk_stats","Age","MP","3P","AST","FG"
                                          ,"FT","TOV","DRB","FGA","TRB","ORB",
-                                         "FTA","FT","STL","BLK","PF","PTS/G"],axis=1)
+                                         "FTA","STL","BLK","PF","PTS/G"],axis=1)
     player_salaries = player_salaries.set_index('Name')
     
     ## Play Stats and Salaries Merged Together
@@ -139,34 +139,41 @@ for zones in eastWestZones:
         Get League information for calculating PER 
     '''
     print("Current season to get league table is "+ strSeasonLinks)
-    leagueMiscLink =  getTable(strSeasonLinks,["misc_stats","team-stats-per_game"],"dynamic")
-    leaguePd = pd.read_html(str(leagueMiscLink[0]))[0]
-    leagueStatsPd = pd.read_html(str(leagueMiscLink[1]))[0]
-    
-    lastValue = leaguePd.iloc[-1:]  # Get League Average
-    lastValue.columns  = ['Rk','Team','Age','W','L','PW','PL','MOV','SOS','SRS','ORtg','DRtg','NRtg',
-                       'Pace','FTr','3PAr','TS%','OF_eFG%','OF_TOV%','ORB%','OFF_FT/FGA',
-                       'DF_eFG%','DF_TOV%','DRB%','DF_FT/FGA','Arena','Attend','Attendance/G']
-    
-    leaguePace = lastValue.reindex(["Pace"], axis = 1)
-    averageLeagueStats = leagueStatsPd.iloc[-1:]
-    averageLeagueStats.columns = ["lg_"+ str(stat) for stat in averageLeagueStats.columns ]
-    
-    ### Get Average League information
-    needAverageLeagueStats = averageLeagueStats.reindex(["lg_FG"
-                                         ,"lg_FT","lg_PF","lg_PTS","lg_AST","lg_FGA","lg_TOV","lg_ORB","lg_TRB",
-                                         "lg_FTA"],axis=1)
-    needAverageLeagueStats["lg_PPG"] = float(averageLeagueStats["lg_PTS"])/82 ### Points per game
-    needAverageLeagueStats["lg_Pace"] = leaguePace["Pace"].values
+    if count % 30 == 0:
+        leagueMiscLink =  getTable(strSeasonLinks,["misc_stats","team-stats-per_game"],"dynamic")
+        leaguePd = pd.read_html(str(leagueMiscLink[0]))[0]
+        leagueStatsPd = pd.read_html(str(leagueMiscLink[1]))[0]
+        
+        lastValue = leaguePd.iloc[-1:]  # Get League Average
+        lastValue.columns  = ['Rk','Team','Age','W','L','PW','PL','MOV','SOS','SRS','ORtg','DRtg','NRtg',
+                           'Pace','FTr','3PAr','TS%','OF_eFG%','OF_TOV%','ORB%','OFF_FT/FGA',
+                           'DF_eFG%','DF_TOV%','DRB%','DF_FT/FGA','Arena','Attend','Attendance/G']
+        
+        leaguePace = lastValue.reindex(["Pace"], axis = 1)
+        averageLeagueStats = leagueStatsPd.iloc[-1:]
+        averageLeagueStats.columns = ["lg_"+ str(stat) for stat in averageLeagueStats.columns ]
+        
+        ### Get Average League information
+        needAverageLeagueStats = averageLeagueStats.reindex(["lg_FG"
+                                             ,"lg_FT","lg_PF","lg_PTS","lg_AST","lg_FGA","lg_TOV","lg_ORB","lg_TRB",
+                                             "lg_FTA"],axis=1)
+        needAverageLeagueStats["lg_PPG"] = float(averageLeagueStats["lg_PTS"])/82 ### Points per game
+        needAverageLeagueStats["lg_Pace"] = leaguePace["Pace"].values
     
     ## Update counter 
+    '''
+        Update the PlayStat with League information
+    '''
     count = count + 1
-    for column in needAverageLeagueStats.columns:
-        playStatsSalaries[column] =  needAverageLeagueStats[column].values[0]
+    if len(needAverageLeagueStats) > 0 :
+        for column in needAverageLeagueStats.columns:
+            playStatsSalaries[column] =  needAverageLeagueStats[column].values[0]
     
+    ### Add to the Final Frame for players
     finalFrame = finalFrame.append(playStatsSalaries)
     print("The total length of players are: ")
     print(len(finalFrame))
+## Get final frame index
 finalFrame = finalFrame.reset_index()
 finalFrame.to_csv("./NbaPlayerStats20172019.csv",index=False)
  
