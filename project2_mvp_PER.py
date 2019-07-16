@@ -10,6 +10,8 @@ import pandas as pd
 
 playerStats = pd.read_csv("NbaPlayerStats20172019.csv")
 
+onlyPlayerStats = playerStats[playerStats.columns[0:22]]
+
 ### Do needed calculation for Player Rating
 
 playerStats["DRB%"] = (playerStats["lg_TRB"] - playerStats["lg_ORB"]).astype(float) / (playerStats["lg_TRB"]).astype(float)
